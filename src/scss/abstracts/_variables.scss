@@ -1,6 +1,29 @@
 @use './functions' as *;
 
 :root {
+    /* colors */
+
+    // primary
+    --color-blue-400: hsl(227, 92%, 58%);
+    --color-blue-700: hsl(215, 17%, 45%);
+    --color-blue-800: hsl(215, 31%, 21%);
+    --color-white: hsl(0, 0%, 100%);
+
     /* font */
+
+    // font-family
     --ff-primary: "Inter", sans-serif;
+
+    // font-size
+    --fs-s: #{a.rem(14)};
+    --fs-body: #{a.rem(16)};
+    --fs-m: #{a.rem(20)};
+    --fs-l: #{a.rem(24)};
+    --fs-xl: #{a.rem(32)};
+    --fs-xxl: #{a.rem(48)};
+    --fs-xxxl: #{a.rem(64)};
+
+    // font-weight
+    --fw-regular: 400;
+    --fw-bold: 700;
 }
