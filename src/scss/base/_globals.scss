@@ -1,0 +1,17 @@
+@use '../abstracts' as a;
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: var(--ff-primary);
+    // font-size: var(--fs-body);
+    // background-color: var(--color-white-regular);
+    // height: auto;
+    // min-block-size: 100vh;
+    // line-height: 1.7;
+    // @include a.flexbox($direction: column, $align: center, $gap: var(--space-5-5));
+}
