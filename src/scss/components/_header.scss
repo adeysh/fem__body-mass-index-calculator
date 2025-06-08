@@ -1,6 +1,8 @@
 @use '../abstracts' as a;
 
 .header {
+    padding-block: a.rem(24);
+
     &__logo {
         @include a.flexbox($align: center, $justify: center);
 

@@ -1,6 +1,20 @@
 @use '../abstracts' as a;
 
 .hero {
+    @include a.flexbox($direction: column, $gap: a.rem(48));
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 800px;
+        background: linear-gradient(290deg, #D6E6FE 0%, rgba(214, 252, 254, 0) 100%);
+        border-bottom-right-radius: a.rem(32);
+        z-index: -1;
+    }
+
     &__text {
         text-align: center;
         @include a.flexbox($direction: column, $gap: a.rem(24));

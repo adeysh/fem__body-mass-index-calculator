@@ -22,3 +22,26 @@ h4 {
     margin: 0;
     line-height: 1.2;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    display: grid;
+    place-content: center;
+}
+
+// input[type="radio"]:focus {
+//     outline: max(2px, 0.15em) solid currentColor;
+//     outline-offset: max(2px, 0.15em);
+// }

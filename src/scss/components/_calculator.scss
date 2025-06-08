@@ -2,8 +2,141 @@
 
 .calculator {
     background-color: var(--color-calculator-bg);
+    padding: a.rem(24);
+    border-radius: a.rem(12);
+    box-shadow: 16px 32px 56px 0 rgba(143, 174, 207, 0.25);
+
+    @include a.flexbox($direction: column, $gap: a.rem(24));
 
     &__form {
         color: var(--color-calculator-form-text);
+        @include a.flexbox($direction: column, $gap: a.rem(24));
+
+        &-header {
+            font-size: var(--fs-l);
+        }
+
+        &-unit-choices {
+            @include a.flexbox($align: center, $justify: space-between);
+            font-weight: var(--fw-bold);
+        }
+
+        &-unit-choice {
+            @include a.flexbox($align: center, $gap: a.rem(16));
+        }
+
+        &-radio-input {
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 30px;
+            height: 30px;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            transform: translateY(-0.075em);
+            position: relative;
+
+            &:checked {
+                border: none;
+            }
+
+            &::before {
+                content: "";
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                transform: scale(0);
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em var(--color-calculator-form-radio-btn-bg);
+                z-index: 2;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: -1px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: #D6E6FE;
+                opacity: 0;
+                transition: 120ms opacity ease-in-out;
+                z-index: 1;
+            }
+
+            &:checked::before {
+                transform: scale(1);
+            }
+
+            &:checked::after {
+                opacity: 1;
+            }
+        }
+
+        &-biometrics {
+            @include a.flexbox($direction: column, $gap: a.rem(16));
+            width: 100%;
+        }
+
+        &-biometric {
+
+            label {
+                position: relative;
+                @include a.flexbox($direction: column, $gap: a.rem(5));
+            }
+
+            input {
+                padding-right: a.rem(24);
+            }
+
+            label::after {
+                content: attr(data-unit);
+                position: absolute;
+                right: a.rem(24);
+                bottom: 10px;
+                pointer-events: none;
+                font-size: var(--fs-l);
+                font-weight: var(--fw-bold);
+                color: var(--color-calculator-form-placeholder-text);
+            }
+        }
+
+        &-number-label {
+            color: var(--color-calculator-form-number-label-text);
+            @include a.flexbox($direction: column);
+        }
+
+        &-number-input {
+            color: var(--color-calculator-form-text);
+            height: 60px;
+            border: var(--color-calculator-form-border);
+            border-radius: a.rem(12);
+            font-size: var(--fs-l);
+            font-weight: var(--fw-bold);
+            padding: a.rem(24);
+        }
+    }
+
+    &__result-container {
+        background-color: var(--color-calculator-form-result-container-bg);
+        padding: a.rem(32);
+        color: var(--color-calculator-form-result-container-text);
+        border-radius: a.rem(12);
+    }
+
+    &__initial {
+        @include a.flexbox($direction: column, $gap: a.rem(16));
+
+        .greet {
+            font-size: var(--fs-l);
+            font-weight: var(--fw-bold);
+        }
+    }
+
+    &__calculated {
+        display: none;
     }
 }
