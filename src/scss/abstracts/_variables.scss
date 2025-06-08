@@ -15,13 +15,13 @@
     --ff-primary: "Inter", sans-serif;
 
     // font-size
-    --fs-s: #{a.rem(14)};
-    --fs-body: #{a.rem(16)};
-    --fs-m: #{a.rem(20)};
-    --fs-l: #{a.rem(24)};
-    --fs-xl: #{a.rem(32)};
-    --fs-xxl: #{a.rem(48)};
-    --fs-xxxl: #{a.rem(64)};
+    --fs-s: #{rem(14)};
+    --fs-body: #{rem(16)};
+    --fs-m: #{rem(20)};
+    --fs-l: #{rem(24)};
+    --fs-xl: #{rem(32)};
+    --fs-xxl: #{rem(48)};
+    --fs-xxxl: #{rem(64)};
 
     // font-weight
     --fw-regular: 400;
