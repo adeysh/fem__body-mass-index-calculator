@@ -9,6 +9,13 @@
     --color-blue-800: hsl(215, 31%, 21%);
     --color-white: hsl(0, 0%, 100%);
 
+    // semantics
+    --color-hero-title-text: var(--color-blue-800);
+    --color-hero-description-text: var(--color-blue-700);
+
+    --color-calculator-bg: var(--color-white);
+    --color-calculator-form-text: var(--color-blue-800);
+
     /* font */
 
     // font-family

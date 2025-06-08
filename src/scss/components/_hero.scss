@@ -1,0 +1,17 @@
+@use '../abstracts' as a;
+
+.hero {
+    &__text {
+        text-align: center;
+        @include a.flexbox($direction: column, $gap: a.rem(24));
+    }
+
+    &__title {
+        color: var(--color-hero-title-text);
+        font-size: var(--fs-xxl);
+    }
+
+    &__description {
+        color: var(--color-hero-description-text);
+    }
+}

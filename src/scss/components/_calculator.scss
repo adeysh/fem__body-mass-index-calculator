@@ -1,0 +1,9 @@
+@use '../abstracts' as a;
+
+.calculator {
+    background-color: var(--color-calculator-bg);
+
+    &__form {
+        color: var(--color-calculator-form-text);
+    }
+}
