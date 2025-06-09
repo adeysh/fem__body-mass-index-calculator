@@ -64,5 +64,21 @@
         &--race {
             grid-area: race;
         }
+
+        @include a.bp($from: "tablet") {
+            padding: a.rem(32);
+        }
+    }
+
+    @include a.bp($from: "tablet") {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "text text text text"
+            "gender gender age age"
+            "muscle muscle pregnancy pregnancy"
+            ". race race .";
+        row-gap: a.rem(24);
+        column-gap: a.rem(24);
     }
 }
