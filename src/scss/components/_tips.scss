@@ -1,0 +1,26 @@
+@use '../abstracts' as a;
+
+.tips {
+
+    @include a.flexbox($direction: column, $gap: a.rem(32));
+    // removing the padding for mobile
+    width: calc(100% + a.rem(40));
+    margin-inline: a.rem(-20);
+
+    background-color: var(--color-tips-bg);
+    padding-block: a.rem(60);
+    padding-inline: a.rem(20);
+
+    .tip {
+        @include a.flexbox($direction: column, $gap: a.rem(32));
+
+        &__title {
+            color: var(--color-tip-title-text);
+            font-size: var(--fs-l);
+        }
+
+        &__description {
+            color: var(--color-tip-description-text);
+        }
+    }
+}

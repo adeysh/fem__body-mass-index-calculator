@@ -1,7 +1,10 @@
 @use '../abstracts' as a;
 
 .bmi-details {
+    @include a.flexbox($direction: column, $gap: a.rem(32));
+
     &__img {
+        // removing the padding for mobile
         width: calc(100% + a.rem(40));
         margin-inline: a.rem(-20);
     }
@@ -19,5 +22,4 @@
         color: var(--color-bmi-details-description-text);
     }
 
-    @include a.flexbox($direction: column, $gap: a.rem(32));
 }
