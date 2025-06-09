@@ -9,7 +9,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 800px;
+        height: 650px;
         background: linear-gradient(290deg, var(--color-hero-bg) 0%, rgba(214, 252, 254, 0) 100%);
         border-bottom-right-radius: a.rem(32);
         z-index: -1;
@@ -17,15 +17,23 @@
 
     &__text {
         text-align: center;
-        @include a.flexbox($direction: column, $gap: a.rem(24));
+        @include a.flexbox($direction: column, $align: center, $gap: a.rem(24));
     }
 
     &__title {
         color: var(--color-hero-title-text);
         font-size: var(--fs-xxl);
+
+        @include a.bp($from: "tablet") {
+            width: 15ch;
+        }
     }
 
     &__description {
         color: var(--color-hero-description-text);
+
+        @include a.bp($from: "tablet") {
+            width: 70ch;
+        }
     }
 }

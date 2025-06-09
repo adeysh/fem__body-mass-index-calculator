@@ -14,11 +14,24 @@
 
         &-header {
             font-size: var(--fs-l);
+
+            @include a.bp($from: "tablet") {
+                grid-area: header;
+            }
         }
 
         &-unit-choices {
             @include a.flexbox($align: center, $justify: space-between);
             font-weight: var(--fw-bold);
+
+            @include a.bp($from: "tablet") {
+                grid-area: unit-choices;
+                justify-self: flex-start;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: a.rem(24);
+            }
         }
 
         &-unit-choice {
@@ -79,6 +92,12 @@
         &-biometrics {
             @include a.flexbox($direction: column, $gap: a.rem(16));
             width: 100%;
+
+            @include a.bp($from: "tablet") {
+                @include a.flexbox($direction: row, $gap: a.rem(16));
+
+                grid-area: biometrics;
+            }
         }
 
         &-biometric {
@@ -102,6 +121,10 @@
                 font-weight: var(--fw-bold);
                 color: var(--color-calculator-form-placeholder-text);
             }
+
+            @include a.bp($from: "tablet") {
+                width: 100%;
+            }
         }
 
         &-number-label {
@@ -118,6 +141,17 @@
             font-weight: var(--fw-bold);
             padding: a.rem(24);
         }
+
+        @include a.bp($from: "tablet") {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                "header header"
+                "unit-choices unit-choices"
+                "biometrics biometrics";
+            row-gap: a.rem(32);
+        }
     }
 
     &__result-container {
@@ -125,6 +159,13 @@
         padding: a.rem(32);
         color: var(--color-calculator-form-result-container-text);
         border-radius: a.rem(12);
+
+        @include a.bp($from: "tablet") {
+            border-top-left-radius: a.rem(12);
+            border-bottom-left-radius: a.rem(12);
+            border-top-right-radius: a.rem(100);
+            border-bottom-right-radius: a.rem(100);
+        }
     }
 
     &__initial {
@@ -138,5 +179,10 @@
 
     &__calculated {
         display: none;
+    }
+
+    @include a.bp($from: "tablet") {
+        @include a.flexbox($direction: column, $gap: a.rem(32));
+        padding: a.rem(32);
     }
 }
