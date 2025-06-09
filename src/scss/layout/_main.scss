@@ -1,0 +1,5 @@
+@use '../abstracts' as a;
+
+.main {
+    @include a.flexbox($direction: column, $gap: a.rem(64));
+}
