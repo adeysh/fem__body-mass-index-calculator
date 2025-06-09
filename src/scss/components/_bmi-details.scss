@@ -7,19 +7,40 @@
         // removing the padding for mobile
         width: calc(100% + a.rem(40));
         margin-inline: a.rem(-20);
+        height: 100%;
+
+        @include a.bp($from: "tablet") {
+            & img {
+                flex: 1;
+                width: 1200px;
+                transform: scale(1.7);
+            }
+        }
     }
 
     &__text {
         @include a.flexbox($direction: column, $gap: a.rem(32));
+
+        @include a.bp($from: "tablet") {
+            width: 100ch;
+        }
     }
 
     &__title {
         color: var(--color-bmi-details-title-text);
         font-size: var(--fs-xl);
+
+        // @include a.bp($from: "tablet") {
+        //     width: 20ch;
+        // }
     }
 
     &__description {
         color: var(--color-bmi-details-description-text);
+    }
+
+    @include a.bp($from: "tablet") {
+        @include a.flexbox($direction: row, $align: center, $justify: space-between, $gap: a.rem(180));
     }
 
 }
