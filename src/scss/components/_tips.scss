@@ -14,6 +14,20 @@
     .tip {
         @include a.flexbox($direction: column, $gap: a.rem(32));
 
+        &__icon {
+            @include a.bp($from: "tablet") {
+                svg {
+                    width: a.rem(128);
+                }
+            }
+        }
+
+        &__text {
+            @include a.bp($from: "tablet") {
+                @include a.flexbox($direction: column, $gap: a.rem(24));
+            }
+        }
+
         &__title {
             color: var(--color-tip-title-text);
             font-size: var(--fs-l);
@@ -22,5 +36,11 @@
         &__description {
             color: var(--color-tip-description-text);
         }
+
+        @include a.bp($from: "tablet") {
+            @include a.flexbox($direction: row, $align: center, $gap: a.rem(32));
+        }
     }
+
+
 }
