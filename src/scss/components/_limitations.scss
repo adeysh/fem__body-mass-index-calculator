@@ -1,0 +1,68 @@
+@use '../abstracts' as a;
+
+.limitations {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "text"
+        "gender"
+        "age"
+        "muscle"
+        "pregnancy"
+        "race";
+    row-gap: a.rem(16);
+
+    &__text {
+        @include a.flexbox($direction: column, $gap: a.rem(32));
+        grid-area: text;
+        text-align: center;
+        margin-block-end: a.rem(64);
+    }
+
+    &__title {
+        color: var(--color-limitations-title-text);
+        font-size: var(--fs-xl);
+    }
+
+    &__description {
+        color: var(--color-limitations-description-text);
+    }
+
+    &__card {
+        box-shadow: 16px 5px 56px rgba(143, 174, 207, 0.35);
+        border-radius: a.rem(12);
+        padding: a.rem(24);
+
+        @include a.flexbox($direction: column, $gap: a.rem(16));
+
+        &-header {
+            @include a.flexbox($align: center, $gap: a.rem(16));
+        }
+
+        &-title {
+            color: var(--color-limitations-card-title-text);
+            font-size: var(--fs-m);
+        }
+
+        &--gender {
+            grid-area: gender;
+        }
+
+        &--age {
+            grid-area: age;
+        }
+
+        &--muscle {
+            grid-area: muscle;
+        }
+
+        &--pregnancy {
+            grid-area: pregnancy;
+        }
+
+        &--race {
+            grid-area: race;
+        }
+    }
+}
