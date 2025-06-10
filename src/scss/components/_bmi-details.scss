@@ -13,7 +13,8 @@
             & img {
                 flex: 1;
                 width: 1200px;
-                transform: scale(1.7);
+                width: calc(100% + a.rem(40));
+                margin-inline-end: a.rem(100);
             }
         }
 
@@ -29,7 +30,7 @@
         @include a.flexbox($direction: column, $gap: a.rem(32));
 
         @include a.bp($from: "tablet") {
-            width: 100ch;
+            width: 50%;
         }
 
         @include a.bp($from: "desktop") {

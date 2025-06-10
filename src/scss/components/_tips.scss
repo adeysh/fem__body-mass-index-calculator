@@ -7,9 +7,15 @@
     width: calc(100% + a.rem(40));
     margin-inline: a.rem(-20);
 
-    background-color: var(--color-tips-bg);
+    background: linear-gradient(290deg, var(--color-tips-bg) 0%, rgba(214, 252, 254, 0) 100%);
     padding-block: a.rem(60);
     padding-inline: a.rem(20);
+
+    &__wrapper {
+        @include a.bp($from: "desktop") {
+            @include a.flexbox($direction: row);
+        }
+    }
 
     .tip {
         @include a.flexbox($direction: column, $gap: a.rem(32));
@@ -18,6 +24,14 @@
             @include a.bp($from: "tablet") {
                 svg {
                     width: a.rem(128);
+                }
+            }
+
+            @include a.bp($from: "desktop") {
+                svg {
+                    .icon-translate {
+                        transform: translateX(-32px);
+                    }
                 }
             }
         }
@@ -40,7 +54,18 @@
         @include a.bp($from: "tablet") {
             @include a.flexbox($direction: row, $align: center, $gap: a.rem(32));
         }
+
+        @include a.bp($from: "desktop") {
+            @include a.flexbox($direction: column, $justify: flex-start, $gap: a.rem(48));
+            padding-block: a.rem(20);
+            padding-inline: a.rem(16);
+        }
     }
 
+    @include a.bp($from: "desktop") {
+        width: calc(100vw - a.rem(40));
+        @include a.flexbox($direction: row, $align: center);
+        border-radius: a.rem(12);
+    }
 
 }
