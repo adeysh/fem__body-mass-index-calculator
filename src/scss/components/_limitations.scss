@@ -13,20 +13,44 @@
         "race";
     row-gap: a.rem(16);
 
+    &::before {
+        display: none;
+
+        @include a.bp($from: desktop) {
+            display: block;
+            content: url("/assets/images/pattern-curved-line-right.svg");
+            position: absolute;
+            top: 280px;
+            left: 160px;
+        }
+    }
+
     &__text {
         @include a.flexbox($direction: column, $gap: a.rem(32));
         grid-area: text;
         text-align: center;
         margin-block-end: a.rem(64);
+
+        @include a.bp($from: "desktop") {
+            text-align: left;
+        }
     }
 
     &__title {
         color: var(--color-limitations-title-text);
         font-size: var(--fs-xl);
+
+        @include a.bp($from: "desktop") {
+            font-size: var(--fs-xxl);
+        }
     }
 
     &__description {
         color: var(--color-limitations-description-text);
+
+        @include a.bp($from: "desktop") {
+            width: 55ch;
+        }
     }
 
     &__card {
@@ -80,5 +104,17 @@
             ". race race .";
         row-gap: a.rem(24);
         column-gap: a.rem(24);
+    }
+
+    @include a.bp($from: "desktop") {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "text text text text text text . gender gender gender gender ."
+            ". . . . age age age age muscle muscle muscle muscle"
+            ". . pregnancy pregnancy pregnancy pregnancy race race race race . .";
+        // row-gap: a.rem(24);
+        // column-gap: a.rem(24);
+        position: relative;
     }
 }

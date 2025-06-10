@@ -3,6 +3,18 @@
 .bmi-details {
     @include a.flexbox($direction: column, $gap: a.rem(32));
 
+    &::before {
+        display: none;
+
+        @include a.bp($from: desktop) {
+            display: block;
+            content: url("/assets/images/pattern-curved-line-left.svg");
+            position: absolute;
+            top: -80px;
+            right: 50px;
+        }
+    }
+
     &__img {
         // removing the padding for mobile
         width: calc(100% + a.rem(40));
@@ -11,16 +23,15 @@
 
         @include a.bp($from: "tablet") {
             & img {
-                flex: 1;
-                width: 1200px;
-                width: calc(100% + a.rem(40));
-                margin-inline-end: a.rem(100);
+                width: 100%;
+                transform: translateX(-30px) scale(1.4);
             }
         }
 
         @include a.bp($from: "desktop") {
             & img {
-                width: calc(100% - a.rem(40));
+                margin: 0;
+                width: 100%;
                 transform: scale(1);
             }
         }
@@ -30,11 +41,12 @@
         @include a.flexbox($direction: column, $gap: a.rem(32));
 
         @include a.bp($from: "tablet") {
-            width: 50%;
+            width: 100%;
         }
 
         @include a.bp($from: "desktop") {
             margin-block-start: a.rem(120);
+            width: 100%;
         }
     }
 
@@ -53,6 +65,10 @@
 
     @include a.bp($from: "tablet") {
         @include a.flexbox($direction: row, $align: center, $justify: space-between, $gap: a.rem(100));
+    }
+
+    @include a.bp($from: "desktop") {
+        position: relative;
     }
 
 }
