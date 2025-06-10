@@ -16,6 +16,13 @@
                 transform: scale(1.7);
             }
         }
+
+        @include a.bp($from: "desktop") {
+            & img {
+                width: calc(100% - a.rem(40));
+                transform: scale(1);
+            }
+        }
     }
 
     &__text {
@@ -24,15 +31,19 @@
         @include a.bp($from: "tablet") {
             width: 100ch;
         }
+
+        @include a.bp($from: "desktop") {
+            margin-block-start: a.rem(120);
+        }
     }
 
     &__title {
         color: var(--color-bmi-details-title-text);
         font-size: var(--fs-xl);
 
-        // @include a.bp($from: "tablet") {
-        //     width: 20ch;
-        // }
+        @include a.bp($from: "desktop") {
+            font-size: var(--fs-xxl);
+        }
     }
 
     &__description {
@@ -40,7 +51,7 @@
     }
 
     @include a.bp($from: "tablet") {
-        @include a.flexbox($direction: row, $align: center, $justify: space-between, $gap: a.rem(180));
+        @include a.flexbox($direction: row, $align: center, $justify: space-between, $gap: a.rem(100));
     }
 
 }
