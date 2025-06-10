@@ -4,6 +4,10 @@
     @include a.flexbox($direction: column, $gap: a.rem(64));
 
     @include a.bp($from: "tablet") {
-        @include a.flexbox($direction: column, $gap: a.rem(128))
+        @include a.flexbox($direction: column, $gap: a.rem(128));
+    }
+
+    @include a.bp($from: "desktop") {
+        @include a.flexbox($direction: column, $gap: a.rem(300));
     }
 }

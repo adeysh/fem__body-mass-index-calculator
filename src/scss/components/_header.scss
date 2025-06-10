@@ -9,6 +9,16 @@
         svg {
             width: a.rem(40);
             height: a.rem(40);
+
+            @include a.bp($from: "desktop") {
+                width: a.rem(64);
+                height: a.rem(64);
+            }
         }
+    }
+
+    @include a.bp($from: "desktop") {
+        @include a.flexbox($align: center);
+        padding-block: a.rem(64);
     }
 }

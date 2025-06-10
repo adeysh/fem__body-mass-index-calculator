@@ -185,4 +185,8 @@
         @include a.flexbox($direction: column, $gap: a.rem(32));
         padding: a.rem(32);
     }
+
+    @include a.bp($from: "desktop") {
+        width: 50%;
+    }
 }

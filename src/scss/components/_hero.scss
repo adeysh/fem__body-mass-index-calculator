@@ -13,11 +13,22 @@
         background: linear-gradient(290deg, var(--color-hero-bg) 0%, rgba(214, 252, 254, 0) 100%);
         border-bottom-right-radius: a.rem(32);
         z-index: -1;
+
+        @include a.bp($from: "desktop") {
+            width: 70%;
+            height: 750px;
+        }
     }
 
     &__text {
         text-align: center;
         @include a.flexbox($direction: column, $align: center, $gap: a.rem(24));
+
+        @include a.bp($from: "desktop") {
+            text-align: left;
+            @include a.flexbox($direction: column, $align: flex-start, $gap: a.rem(24));
+            width: 40%;
+        }
     }
 
     &__title {
@@ -27,6 +38,10 @@
         @include a.bp($from: "tablet") {
             width: 15ch;
         }
+
+        @include a.bp($from: "desktop") {
+            font-size: var(--fs-xxxl);
+        }
     }
 
     &__description {
@@ -35,5 +50,13 @@
         @include a.bp($from: "tablet") {
             width: 70ch;
         }
+
+        @include a.bp($from: "desktop") {
+            width: 50ch;
+        }
+    }
+
+    @include a.bp($from: "desktop") {
+        @include a.flexbox($direction: row, $align: center, $justify: space-between, $gap: a.rem(0));
     }
 }
