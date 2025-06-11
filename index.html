@@ -69,21 +69,62 @@
                         </div>
                     </div>
 
-                    <div class="calculator__form-biometrics">
+                    <div class="calculator__form-biometrics calculator__form-biometrics--imperial" id="biometrics">
+
                         <div class="calculator__form-biometric">
                             <label data-unit="cm" name="biometric" class="calculator__form-number-label">
                                 Height
-                                <input type="number" name="biometric" class="calculator__form-number-input" value="0"
-                                    min="0" max="250" />
+                                <input type="number" name="biometric" class="calculator__form-number-input"
+                                    placeholder="0" min="0" max="250" />
                             </label>
                         </div>
                         <div class="calculator__form-biometric">
                             <label data-unit="kg" name="biometric" class="calculator__form-number-label">
                                 Weight
-                                <input type="number" name="biometric" class="calculator__form-number-input" value="0"
-                                    min="0" max="600" />
+                                <input type="number" name="biometric" class="calculator__form-number-input"
+                                    placeholder="0" min="0" max="600" />
                             </label>
                         </div>
+                        <fieldset class="calculator__form-fieldset">
+                            <legend class="calculator__form-legend">
+                                Height
+                            </legend>
+                            <div class="calculator__form-fields">
+                                <div class="input-with-unit">
+                                    <label for="feet" class="visually-hidden">Feet</label>
+                                    <input data-unit="ft" type="number" name="biometric"
+                                        class="calculator__form-number-input" placeholder="0" min="0" max="600"
+                                        id="feet">
+                                    <span class="unit">ft</span>
+                                </div>
+
+                                <div class="input-with-unit">
+                                    <label for="inch" class="visually-hidden">Inch</label>
+                                    <input type="number" name="biometric" class="calculator__form-number-input"
+                                        placeholder="0" min="0" max="600" id="inch">
+                                    <span class="unit">in</span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="calculator__form-fieldset">
+                            <legend class="calculator__form-legend">
+                                Weight
+                            </legend>
+                            <div class="calculator__form-fields">
+                                <div class="input-with-unit">
+                                    <label for="stone" class="visually-hidden">Stone</label>
+                                    <input type="number" name="biometric" class="calculator__form-number-input"
+                                        placeholder="0" min="0" max="600" id="stone">
+                                    <span class="unit">st</span>
+                                </div>
+                                <div class="input-with-unit">
+                                    <label for="pounds" class="visually-hidden">Pounds</label>
+                                    <input type="number" name="biometric" class="calculator__form-number-input"
+                                        placeholder="0" min="0" max="600" id="pounds">
+                                    <span class="unit">lbs</span>
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
                 </form>
 

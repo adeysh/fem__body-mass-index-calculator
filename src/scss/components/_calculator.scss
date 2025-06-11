@@ -21,7 +21,7 @@
         }
 
         &-unit-choices {
-            @include a.flexbox($align: center, $justify: space-between);
+            @include a.flexbox($align: center, $justify: flex-start, $gap: a.rem(58));
             font-weight: var(--fw-bold);
 
             @include a.bp($from: "tablet") {
@@ -90,17 +90,25 @@
         }
 
         &-biometrics {
-            @include a.flexbox($direction: column, $gap: a.rem(16));
+            @include a.flexbox($direction: column, $gap: a.rem(32));
             width: 100%;
 
             @include a.bp($from: "tablet") {
-                @include a.flexbox($direction: row, $gap: a.rem(16));
+
+                &--metric {
+                    @include a.flexbox($direction: row, $gap: a.rem(16));
+                }
+
+                &--imperial {
+                    @include a.flexbox($direction: column, $gap: a.rem(32));
+                }
 
                 grid-area: biometrics;
             }
         }
 
         &-biometric {
+            display: none;
 
             label {
                 position: relative;
@@ -140,6 +148,54 @@
             font-size: var(--fs-l);
             font-weight: var(--fw-bold);
             padding: a.rem(24);
+        }
+
+        &-fieldset {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+
+        &-legend {
+            margin-block-end: a.rem(8);
+            color: var(--color-calculator-form-number-label-text);
+        }
+
+        &-fields {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            column-gap: a.rem(16);
+
+            .input-with-unit {
+                position: relative;
+                display: inline-block;
+
+                .unit {
+                    position: absolute;
+                    top: 50%;
+                    right: 12px;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                    font-size: var(--fs-l);
+                    font-weight: var(--fw-bold);
+                    color: var(--color-calculator-form-placeholder-text);
+
+                    @include a.bp($from: "tablet") {
+                        right: 24px;
+                    }
+                }
+            }
+
+            .calculator__form-number-input {
+                padding: a.rem(12);
+                width: 100%;
+
+                @include a.bp($from: "tablet") {
+                    padding: a.rem(24);
+                }
+            }
         }
 
         @include a.bp($from: "tablet") {

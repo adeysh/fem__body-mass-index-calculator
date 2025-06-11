@@ -43,7 +43,25 @@ input[type="radio"] {
     place-content: center;
 }
 
-// input[type="radio"]:focus {
-//     outline: max(2px, 0.15em) solid currentColor;
-//     outline-offset: max(2px, 0.15em);
-// }
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+input[type="number"] {
+    color: var(--color-calculator-from-text-initial);
+}
+
+input[type="number"]:not(:placeholder-shown) {
+    color: var(--color-calculator-form-text);
+}
