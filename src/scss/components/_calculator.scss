@@ -50,6 +50,7 @@
             border-radius: 50%;
             transform: translateY(-0.075em);
             position: relative;
+            cursor: pointer;
 
             &:checked {
                 border: none;
@@ -108,7 +109,7 @@
         }
 
         &-biometric {
-            display: none;
+            // display: none;
 
             label {
                 position: relative;
@@ -155,6 +156,8 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: auto;
+
+            display: none;
         }
 
         &-legend {
