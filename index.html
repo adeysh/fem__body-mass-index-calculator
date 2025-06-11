@@ -75,14 +75,16 @@
                             <label data-unit="cm" name="biometric" class="calculator__form-number-label">
                                 Height
                                 <input data-unit="metric" data-type="height" type="number" name="biometric"
-                                    class="calculator__form-number-input" placeholder="0" min="0" max="250" id="cm" />
+                                    class="calculator__form-number-input" placeholder="0" step="0.1" min="0" max="250"
+                                    id="cm" />
                             </label>
                         </div>
                         <div class="calculator__form-biometric">
                             <label data-unit="kg" name="biometric" class="calculator__form-number-label">
                                 Weight
                                 <input data-unit="metric" data-type="weight" type="number" name="biometric"
-                                    class="calculator__form-number-input" placeholder="0" min="0" max="600" id="kg" />
+                                    class="calculator__form-number-input" placeholder="0" step="0.1" min="0" max="600"
+                                    id="kg" />
                             </label>
                         </div>
                         <fieldset class="calculator__form-fieldset">
@@ -93,16 +95,16 @@
                                 <div class="input-with-unit">
                                     <label for="feet" class="visually-hidden">Feet</label>
                                     <input data-unit="imperial" data-type="height-feet" type="number" name="biometric"
-                                        class="calculator__form-number-input" placeholder="0" min="0" max="600"
-                                        id="feet">
+                                        class="calculator__form-number-input" placeholder="0" step="0.1" min="0"
+                                        max="600" id="feet">
                                     <span class="unit">ft</span>
                                 </div>
 
                                 <div class="input-with-unit">
                                     <label for="inch" class="visually-hidden">Inch</label>
                                     <input data-unit="imperial" data-type="height-inch" type="number" name="biometric"
-                                        class="calculator__form-number-input" placeholder="0" min="0" max="600"
-                                        id="inch">
+                                        class="calculator__form-number-input" placeholder="0" step="0.1" min="0"
+                                        max="600" id="inch">
                                     <span class="unit">in</span>
                                 </div>
                             </div>
@@ -115,15 +117,15 @@
                                 <div class="input-with-unit">
                                     <label for="stone" class="visually-hidden">Stone</label>
                                     <input data-unit="imperial" data-type="weight-stone" type="number" name="biometric"
-                                        class="calculator__form-number-input" placeholder="0" min="0" max="600"
-                                        id="stone">
+                                        class="calculator__form-number-input" placeholder="0" step="0.1" min="0"
+                                        max="600" id="stone">
                                     <span class="unit">st</span>
                                 </div>
                                 <div class="input-with-unit">
                                     <label for="pounds" class="visually-hidden">Pounds</label>
                                     <input data-unit="imperial" data-type="weight-pounds" type="number" name="biometric"
-                                        class="calculator__form-number-input" placeholder="0" min="0" max="600"
-                                        id="pounds">
+                                        class="calculator__form-number-input" placeholder="0" step="0.1" min="0"
+                                        max="600" id="pounds">
                                     <span class="unit">lbs</span>
                                 </div>
                             </div>
@@ -132,25 +134,28 @@
                 </form>
 
                 <div class="calculator__result-container">
-                    <div class="calculator__initial">
+                    <div class="calculator__initial" id="calculator-initial">
                         <p class="greet">Welcome!</p>
                         <p>
                             Enter your height and weight and you'll see your BMI result here
                         </p>
                     </div>
 
-                    <div class="calculator__calculated">
+                    <div class="calculator__calculated hidden" id="calculator-calculated">
                         <div class="calculator__result">
                             <p>Your BMI is...</p>
-                            <p class="calculator__bmi-score">23.4</p>
+                            <p class="calculator__bmi-score" id="bmi-score">23.4</p>
                         </div>
 
-                        <p class="calculator__result-description">
-                            Your BMI suggests you're
-                            <span class="calculator__result-classification">healthy</span>.
-                            Your ideal weight is between
-                            <span class="calculator__result-range"></span>.
-                        </p>
+                        <div class="calculator__result-description">
+                            <div>
+                                Your BMI suggests you're
+                                <span class="calculator__result-classification" id="classification">healthy</span>.
+
+                                Your ideal weight is between
+                                <span class="calculator__result-range" id="range"></span>.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

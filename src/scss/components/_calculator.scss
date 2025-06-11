@@ -237,7 +237,33 @@
     }
 
     &__calculated {
-        display: none;
+        @include a.flexbox($direction: column, $gap: a.rem(16));
+
+        @include a.bp($from: "tablet") {
+            @include a.flexbox($direction: row, $align: center, $justify: space-between, $gap: a.rem(16));
+        }
+    }
+
+    &__result {
+        font-weight: var(--fw-bold);
+
+        &-description {
+            @include a.bp($from: "tablet") {
+                width: 280px;
+            }
+        }
+
+        &-classification {
+            font-weight: var(--fw-bold);
+        }
+
+        &-range {
+            font-weight: var(--fw-bold);
+        }
+    }
+
+    &__bmi-score {
+        font-size: var(--fs-xxl);
     }
 
     @include a.bp($from: "tablet") {

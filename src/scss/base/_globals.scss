@@ -65,3 +65,7 @@ input[type="number"] {
 input[type="number"]:not(:placeholder-shown) {
     color: var(--color-calculator-form-text);
 }
+
+.hidden {
+    display: none !important;
+}

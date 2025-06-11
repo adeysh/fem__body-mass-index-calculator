@@ -6,6 +6,13 @@ const metricFields = biometrics.querySelectorAll(".calculator__form-biometric");
 const imperialFields = biometrics.querySelectorAll(".calculator__form-fieldset");
 
 const allInputs = biometrics.querySelectorAll(".calculator__form-number-input");
+
+const calculatorInitial = document.getElementById("calculator-initial");
+const calculatorCalculated = document.getElementById("calculator-calculated");
+
+const bmiScoreEl = document.getElementById("bmi-score");
+const classificationEl = document.getElementById("classification");
+const rangeEl = document.getElementById("range");
 // console.log(inputs);
 
 let activeUnit = "metric";
@@ -50,6 +57,12 @@ function isAllFilled(unit) {
     return { "relevantInputs": [], "filled": false };
 }
 
+function displayResult({ bmi, message, minIdealWeight, maxIdealWeight }) {
+    bmiScoreEl.textContent = bmi;
+    classificationEl.textContent = message;
+    rangeEl.textContent = `${minIdealWeight}kgs - ${maxIdealWeight}kgs`;
+}
+
 function handleInputCheck() {
     if (metricRadioBtn.checked) {
         const relevantInputs = isAllFilled("metric").relevantInputs;
@@ -57,7 +70,11 @@ function handleInputCheck() {
             const height = parseFloat(relevantInputs.find(input => input.dataset.type === "height")?.value.trim());
             const weight = parseFloat(relevantInputs.find(input => input.dataset.type === "weight")?.value.trim());
 
-            calculateBMI(height, weight);
+            const result = calculateBMI(height, weight);
+            console.log(result);
+            displayResult(result);
+            calculatorInitial.classList.add("hidden");
+            calculatorCalculated.classList.remove("hidden");
         } else {
             console.log("metric inputs incomplete");
         }
@@ -78,7 +95,11 @@ function handleInputCheck() {
             const totalPounds = (stone * 14) + pounds;
             const weightKg = totalPounds * 0.453592;
 
-            calculateBMI(heightCm.toFixed(2), weightKg.toFixed(2));
+            const result = calculateBMI(heightCm.toFixed(2), weightKg.toFixed(2));
+            console.log(result);
+            displayResult(result);
+            calculatorInitial.classList.add("hidden");
+            calculatorCalculated.classList.remove("hidden");
         } else {
             console.log("imperial inputs incomplete");
         }
@@ -87,15 +108,52 @@ function handleInputCheck() {
 
 allInputs.forEach(input => {
     input.addEventListener("input", handleInputCheck);
-})
+});
+
+const bmiRanges = {
+    "underweight": 18.5,
+    "healthy": 24.9,
+    "overweight": 29.9,
+    "obeseClass1": 34.9,
+    "obeseClass2": 39.9,
+};
+
+// const idealWeights = {
+//     "underweight": 18.5,
+//     "healthy": 24.9,
+//     "overweight": 29.9,
+//     "obeseClass1": 34.9,
+//     "obeseClass2": 39.9,
+// }
 
 function calculateBMI(height, weight) {
-    // console.log(height, weight);
     const heightInMeters = height / 100;
     const heightSquared = heightInMeters ** 2;
 
-    const bmi = weight / heightSquared;
-    console.log(bmi);
+    const bmi = Number((weight / heightSquared).toFixed(1));
+
+    let message = "";
+    if (bmi <= bmiRanges.underweight) {
+        message = "Underweight";
+    } else if (bmi <= bmiRanges.healthy) {
+        message = "a Healthy Weight";
+    } else if (bmi <= bmiRanges.overweight) {
+        message = "Overweight";
+    } else if (bmi <= bmiRanges.obeseClass1) {
+        message = "Obese. You have Obesity Class 1.";
+    } else if (bmi <= bmiRanges.obeseClass2) {
+        message = "Obese. You have Obesity Class 2.";
+    } else {
+        message = "Obese. You have Obesity Class 3.";
+    }
+
+    const minBMI = 18.5;
+    const maxBMI = 24.9;
+
+    const minIdealWeight = Number((minBMI * (heightInMeters ** 2)).toFixed(1));
+    const maxIdealWeight = Number((maxBMI * (heightInMeters ** 2)).toFixed(1));
+
+    return { bmi, message, minIdealWeight, maxIdealWeight };
 }
 
 document.addEventListener("DOMContentLoaded", () => { metricRadioBtn.checked = "true" });
