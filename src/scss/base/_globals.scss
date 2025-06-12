@@ -27,7 +27,9 @@ h4 {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
+    -moz-appearance: textfield;
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 
