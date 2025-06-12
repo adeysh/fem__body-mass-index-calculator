@@ -25,12 +25,16 @@ h4 {
     line-height: 1.2;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input[type="number"] {
     -moz-appearance: textfield;
     -webkit-appearance: none;
     appearance: none;
-    margin: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
 input[type="radio"] {
