@@ -12,6 +12,8 @@
     padding-inline: a.rem(20);
 
     &__wrapper {
+        @include a.flexbox($direction: column, $gap: a.rem(32));
+
         @include a.bp($from: "desktop") {
             @include a.flexbox($direction: row);
         }
