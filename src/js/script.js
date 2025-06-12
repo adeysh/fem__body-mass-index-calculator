@@ -1,3 +1,5 @@
+// constants
+
 const metricRadioBtn = document.getElementById("metric");
 const imperialRadioBtn = document.getElementById("imperial");
 

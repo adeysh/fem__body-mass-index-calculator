@@ -5,7 +5,7 @@
 
     // primary
     --color-blue-200: hsl(204, 100%, 97%);
-    --color-blue-300: hsl(216, 95%, 92%);
+    --color-blue-300: hsl(215, 95%, 92%);
     --color-blue-400: hsl(227, 92%, 58%);
     --color-blue-700: hsl(215, 17%, 45%);
     --color-blue-800: hsl(215, 31%, 21%);
@@ -25,6 +25,7 @@
     --color-calculator-form-text: var(--color-blue-800);
 
     --color-calculator-form-radio-btn-bg: var(--color-blue-400);
+    --color-calculator-form-radio-btn-selected-bg: var(--color-blue-300);
     --color-calculator-form-placeholder-text: var(--color-blue-400);
 
     --color-calculator-form-result-container-bg: var(--color-blue-400);

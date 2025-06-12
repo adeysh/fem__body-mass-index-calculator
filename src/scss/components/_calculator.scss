@@ -40,12 +40,12 @@
 
         &-radio-input {
             appearance: none;
-            background-color: #fff;
+            background-color: var(--color-white);
             margin: 0;
             font: inherit;
             color: currentColor;
-            width: 30px;
-            height: 30px;
+            width: a.rem(30);
+            height: a.rem(30);
             border: 1px solid currentColor;
             border-radius: 50%;
             transform: translateY(-0.075em);
@@ -58,8 +58,8 @@
 
             &::before {
                 content: "";
-                width: 16px;
-                height: 16px;
+                width: a.rem(16);
+                height: a.rem(16);
                 border-radius: 50%;
                 transform: scale(0);
                 transition: 120ms transform ease-in-out;
@@ -70,12 +70,12 @@
             &::after {
                 content: "";
                 position: absolute;
-                top: -1px;
-                left: -1px;
-                width: 32px;
-                height: 32px;
+                top: a.rem(-1);
+                left: a.rem(-1);
+                width: a.rem(32);
+                height: a.rem(32);
                 border-radius: 50%;
-                background: #D6E6FE;
+                background: var(--color-calculator-form-radio-btn-selected-bg);
                 opacity: 0;
                 transition: 120ms opacity ease-in-out;
                 z-index: 1;
@@ -109,7 +109,6 @@
         }
 
         &-biometric {
-            // display: none;
 
             label {
                 position: relative;
@@ -124,7 +123,7 @@
                 content: attr(data-unit);
                 position: absolute;
                 right: a.rem(24);
-                bottom: 10px;
+                bottom: a.rem(10);
                 pointer-events: none;
                 font-size: var(--fs-l);
                 font-weight: var(--fw-bold);
@@ -143,7 +142,7 @@
 
         &-number-input {
             color: var(--color-calculator-form-text);
-            height: 60px;
+            height: a.rem(60);
             border: var(--color-calculator-form-border);
             border-radius: a.rem(12);
             font-size: var(--fs-l);
@@ -178,7 +177,7 @@
                 .unit {
                     position: absolute;
                     top: 50%;
-                    right: 12px;
+                    right: a.rem(12);
                     transform: translateY(-50%);
                     pointer-events: none;
                     font-size: var(--fs-l);
@@ -186,7 +185,7 @@
                     color: var(--color-calculator-form-placeholder-text);
 
                     @include a.bp($from: "tablet") {
-                        right: 24px;
+                        right: a.rem(24);
                     }
                 }
             }
@@ -249,7 +248,7 @@
 
         &-description {
             @include a.bp($from: "tablet") {
-                width: 280px;
+                width: a.rem(280);
             }
         }
 

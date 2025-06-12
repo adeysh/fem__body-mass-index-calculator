@@ -20,8 +20,8 @@
             display: block;
             content: url("/assets/images/pattern-curved-line-right.svg");
             position: absolute;
-            top: 280px;
-            left: 160px;
+            top: a.rem(280);
+            left: a.rem(160);
         }
     }
 
@@ -113,8 +113,6 @@
             "text text text text text text . gender gender gender gender ."
             ". . . . age age age age muscle muscle muscle muscle"
             ". . pregnancy pregnancy pregnancy pregnancy race race race race . .";
-        // row-gap: a.rem(24);
-        // column-gap: a.rem(24);
         position: relative;
     }
 }
